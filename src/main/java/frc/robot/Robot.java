@@ -22,7 +22,7 @@ public class Robot extends TimedRobot {
   private MecanumDrive m_robotDrive;
   private Joystick m_stick;
 
-  @Override
+  @Override 
   public void robotInit() {
     PWMSparkMax frontLeft = new PWMSparkMax(kFrontLeftChannel);
     PWMSparkMax rearLeft = new PWMSparkMax(kRearLeftChannel);
@@ -47,6 +47,6 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Cartesian Y", -m_stick.getY()); 
     SmartDashboard.putNumber("Cartesian X", -m_stick.getX()); 
     SmartDashboard.putNumber("Cartesian Z", -m_stick.getZ()); 
-    
+
   }
 }
