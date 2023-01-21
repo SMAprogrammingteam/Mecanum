@@ -7,10 +7,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+//import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/** This is a demo program showing how to use Mecanum control with the MecanumDrive class. */
+// Mahesh 2023 Mecanum Test drive codebase with Talon SRX
 public class Robot extends TimedRobot {
   private static final int kFrontLeftChannel = 2;
   private static final int kRearLeftChannel = 3;
@@ -24,10 +25,12 @@ public class Robot extends TimedRobot {
 
   @Override 
   public void robotInit() {
-    PWMSparkMax frontLeft = new PWMSparkMax(kFrontLeftChannel);
-    PWMSparkMax rearLeft = new PWMSparkMax(kRearLeftChannel);
-    PWMSparkMax frontRight = new PWMSparkMax(kFrontRightChannel);
-    PWMSparkMax rearRight = new PWMSparkMax(kRearRightChannel);
+    Talon frontLeft = new Talon(kFrontLeftChannel);
+    Talon rearLeft = new Talon(kRearLeftChannel);
+    Talon frontRight = new Talon(kFrontRightChannel);
+    Talon rearRight = new Talon(kRearRightChannel);
+
+
 
     // Invert the right side motors.
     // You may need to change or remove this to match your robot.
