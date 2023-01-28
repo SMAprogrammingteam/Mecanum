@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -11,12 +13,13 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+
 // Mahesh 2023 Mecanum Test drive codebase with Talon SRX
 public class Robot extends TimedRobot {
-  private static final int kFrontLeftChannel = 2;
-  private static final int kRearLeftChannel = 3;
-  private static final int kFrontRightChannel = 1;
-  private static final int kRearRightChannel = 0;
+  private static final int kFrontLeftChannel = 20;// 2;
+  private static final int kRearLeftChannel = 2;// 3;
+  private static final int kFrontRightChannel = 8; //1;
+  private static final int kRearRightChannel = 9; // 0;
 
   private static final int kJoystickChannel = 0;
 
@@ -25,10 +28,10 @@ public class Robot extends TimedRobot {
 
   @Override 
   public void robotInit() {
-    Talon frontLeft = new Talon(kFrontLeftChannel);
-    Talon rearLeft = new Talon(kRearLeftChannel);
-    Talon frontRight = new Talon(kFrontRightChannel);
-    Talon rearRight = new Talon(kRearRightChannel);
+    WPI_TalonSRX frontLeft = new WPI_TalonSRX(kFrontLeftChannel);
+    WPI_TalonSRX rearLeft = new WPI_TalonSRX(kRearLeftChannel);
+    WPI_TalonSRX frontRight = new WPI_TalonSRX(kFrontRightChannel);
+    WPI_TalonSRX rearRight = new WPI_TalonSRX(kRearRightChannel);
 
 
 
@@ -47,6 +50,7 @@ public class Robot extends TimedRobot {
     // Use the joystick X axis for forward movement, Y axis for lateral
     // movement, and Z axis for rotation.
     m_robotDrive.driveCartesian(-m_stick.getY(), -m_stick.getX(), -m_stick.getZ());
+    
     SmartDashboard.putNumber("Cartesian Y", -m_stick.getY()); 
     SmartDashboard.putNumber("Cartesian X", -m_stick.getX()); 
     SmartDashboard.putNumber("Cartesian Z", -m_stick.getZ()); 
