@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
 
     // Invert the right side motors.
     // You may need to change or remove this to match your robot.
-    frontRight.setInverted(true);
+    frontRight.setInverted( false);
     rearRight.setInverted(true);
 
     m_robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
     // Use the joystick X axis for forward movement, Y axis for lateral
     // movement, and Z axis for rotation.
     m_robotDrive.driveCartesian(-m_stick.getY(), -m_stick.getX(), -m_stick.getZ());
-    
+
     SmartDashboard.putNumber("Cartesian Y", -m_stick.getY()); 
     SmartDashboard.putNumber("Cartesian X", -m_stick.getX()); 
     SmartDashboard.putNumber("Cartesian Z", -m_stick.getZ()); 
