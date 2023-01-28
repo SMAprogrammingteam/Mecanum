@@ -77,7 +77,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("POV Count  ", m_stick.getPOVCount() ); 
 
     
-    m_robotDrive.driveCartesian(m_stick.getX(), m_stick.getY(), m_stick.getZ(),  Rotation2d.fromDegrees( m_stick.getDirectionDegrees())  );
+    //m_robotDrive.driveCartesian(m_stick.getX(), m_stick.getY(), m_stick.getZ(),  Rotation2d.fromDegrees( m_stick.getDirectionDegrees())  );
+    m_robotDrive.driveCartesian( m_stick.getX(), m_stick.getY(), m_stick.getTwist());
 
     //m_robotDrive.drivePolar(x, null, rx);
 
